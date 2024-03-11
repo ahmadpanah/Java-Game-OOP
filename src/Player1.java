@@ -8,7 +8,9 @@ public class Player1 {
 		
 		this.name = name;
 		this.weapon = weapon;
-		this.health = health;
+		if (health < 0 || health > 100) {
+			this.health = 100;
+		} else this.health = health;
 	}
 	
 	public void damageByGun1() {
@@ -30,6 +32,14 @@ public class Player1 {
 		System.out.println("Got hit by gun2. Health is reduced by 50. New Health is " + this.health);
 		if (this.health == 0) {
 			System.out.println( getName() + " is dead!");
+		}
+	}
+	
+	public void heal() {
+		if (this.health <= 0) System.out.println("Player is Dead! Heal not Possible!👌");
+		else {
+			this.health = 100;
+			System.out.println("Heal is Done! new Health is " + this.health);
 		}
 	}
 
